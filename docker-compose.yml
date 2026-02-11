@@ -22,6 +22,7 @@ services:
       - 8114:8114
     <<: *preset
   fiber-bootnode:
+    image: fiber
     build:
       context: ./fiber
       dockerfile: Dockerfile
@@ -46,10 +47,7 @@ services:
         condition: service_healthy
     <<: *preset
   fiber-node1:
-    build:
-      context: ./fiber
-      dockerfile: Dockerfile
-      network: host
+    image: fiber
     healthcheck:
       test: ["CMD", "curl", "http://127.0.0.1:41716"]
       interval: 5s
@@ -72,10 +70,7 @@ services:
       - ./fiber/nodes/node1/store:/store
     <<: *preset
   fiber-node2:
-    build:
-      context: ./fiber
-      dockerfile: Dockerfile
-      network: host
+    image: fiber
     healthcheck:
       test: ["CMD", "curl", "http://127.0.0.1:41716"]
       interval: 5s
@@ -98,10 +93,7 @@ services:
       - ./fiber/nodes/node2/store:/store
     <<: *preset
   fiber-node3:
-    build:
-      context: ./fiber
-      dockerfile: Dockerfile
-      network: host
+    image: fiber
     healthcheck:
       test: ["CMD", "curl", "http://127.0.0.1:41716"]
       interval: 5s
