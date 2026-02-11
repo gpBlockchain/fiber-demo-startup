@@ -48,6 +48,10 @@ services:
     <<: *preset
   fiber-node1:
     image: fiber
+    build:
+      context: ./fiber
+      dockerfile: Dockerfile
+      network: host
     healthcheck:
       test: ["CMD", "curl", "http://127.0.0.1:41716"]
       interval: 5s
@@ -71,6 +75,10 @@ services:
     <<: *preset
   fiber-node2:
     image: fiber
+    build:
+      context: ./fiber
+      dockerfile: Dockerfile
+      network: host
     healthcheck:
       test: ["CMD", "curl", "http://127.0.0.1:41716"]
       interval: 5s
@@ -94,6 +102,10 @@ services:
     <<: *preset
   fiber-node3:
     image: fiber
+    build:
+      context: ./fiber
+      dockerfile: Dockerfile
+      network: host
     healthcheck:
       test: ["CMD", "curl", "http://127.0.0.1:41716"]
       interval: 5s
