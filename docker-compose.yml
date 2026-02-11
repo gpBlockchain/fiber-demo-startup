@@ -22,6 +22,7 @@ services:
       - 8114:8114
     <<: *preset
   fiber-bootnode:
+    image: fiber
     build:
       context: ./fiber
       dockerfile: Dockerfile
@@ -46,6 +47,7 @@ services:
         condition: service_healthy
     <<: *preset
   fiber-node1:
+    image: fiber
     build:
       context: ./fiber
       dockerfile: Dockerfile
@@ -72,6 +74,7 @@ services:
       - ./fiber/nodes/node1/store:/store
     <<: *preset
   fiber-node2:
+    image: fiber
     build:
       context: ./fiber
       dockerfile: Dockerfile
@@ -98,6 +101,7 @@ services:
       - ./fiber/nodes/node2/store:/store
     <<: *preset
   fiber-node3:
+    image: fiber
     build:
       context: ./fiber
       dockerfile: Dockerfile
